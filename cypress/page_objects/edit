@@ -7,7 +7,6 @@ class Edit {
     return cy.get("[type='submit']").first();
   }
   get checkBoxDay() {
-    // eq 0 1 2 3 za ostale dane
     return cy.get(".vs-c-checkbox-check");
   }
   get vacDays() {

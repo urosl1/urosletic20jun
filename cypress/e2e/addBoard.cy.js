@@ -44,7 +44,7 @@ describe("Login test", () => {
     });
   });
 
-  it.only("Organization creation without image", () => {
+  it("Organization creation without image", () => {
     cy.intercept({
       method: "POST",
       url: "https://cypress-api.vivifyscrum-stage.com/api/v2/organizations",
@@ -63,7 +63,7 @@ describe("Login test", () => {
     });
   });
 
-  it.only("Add a board", () => {
+  it("Add a board", () => {
     cy.intercept({
       method: "POST",
       url: `https://cypress-api.vivifyscrum-stage.com/api/v2/boards`,
