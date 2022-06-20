@@ -1,0 +1,65 @@
+class Profile {
+  get logoutBtn() {
+    return cy.get(".vs-c-btn--danger");
+  }
+
+  get accountBtn() {
+    return cy.get(".el-dropdown-link");
+  }
+
+  get profileBtn() {
+    return cy.get(".vs-c-site-logo").last();
+  }
+
+  get nameUpdateBtn() {
+    return cy.get(".vs-c-btn-auth--top-gap").eq(0);
+  }
+  get emailUpdateBtn() {
+    return cy.get(".vs-c-btn-auth--top-gap").eq(1);
+  }
+
+  get firstName() {
+    return cy.get("[name='first_name']");
+  }
+
+  get lastName() {
+    return cy.get("[name='last_name']");
+  }
+  get email() {
+    return cy.get("[name='email']");
+  }
+  get password() {
+    return cy.get("[name='password']").eq(0);
+  }
+  get currentPassword() {
+    return cy.get("[name='currentpassword']").eq(0);
+  }
+  get newPassword() {
+    return cy.get("[name='newpassword']").eq(0);
+  }
+  get repeatNewPassword() {
+    return cy.get("[name='repeatnewpassword']").eq(0);
+  }
+  get passwordUpdateBtn() {
+    return cy.get(".vs-c-btn-auth--top-gap").eq(2);
+  }
+  get themeDropdown() {
+    return cy.get(".el-dropdown");
+  }
+
+  get lightTheme() {
+    return cy.get(".vs-c-icon--lg").eq(1);
+  }
+
+  get darkTheme() {
+    return cy.get(".vs-c-icon--lg").eq(2);
+  }
+
+  logout() {
+    this.accountBtn.click();
+    cy.wait(1000);
+    this.profileBtn.click();
+    this.logoutBtn.click();
+  }
+}
+export const profile = new Profile();

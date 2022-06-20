@@ -1,0 +1,97 @@
+class Edit {
+  get nameInput() {
+    return cy.get("[name='name']");
+  }
+
+  get updateBtn() {
+    return cy.get("[type='submit']").first();
+  }
+  get checkBoxDay() {
+    // eq 0 1 2 3 za ostale dane
+    return cy.get(".vs-c-checkbox-check");
+  }
+  get vacDays() {
+    return cy.get("[name='vacationDays']");
+  }
+  get numOfWorkingMonths() {
+    return cy.get("[name='numOfWorkingMonthsForAdditionalDays']");
+  }
+  get additionalVacationDays() {
+    return cy.get("[name='additionalVacationDays']");
+  }
+  get updateBtn2() {
+    return cy.get("[type='submit']").eq(1);
+  }
+  get deleteButton() {
+    return cy.get(".vs-c-btn--warning");
+  }
+  get password() {
+    return cy.get("[type='password']");
+  }
+  get yesBtn() {
+    return cy.get("[name='save-btn']");
+  }
+  get boardYesBtn() {
+    return cy.get("[name='next_btn']");
+  }
+
+  get addProjectBtn() {
+    return cy.get(".vs-c-btn--primary").first();
+  }
+  get projectBtn() {
+    return cy.get(".vs-c-btn--primary").eq(0);
+  }
+  get addBoardBtn() {
+    return cy.get(".vs-c-organization-boards__item--add-new");
+  }
+  get archiveBtn() {
+    return cy.get(".vs-c-btn--success");
+  }
+
+  get deArchiveBtn() {
+    return cy.get(".vs-c-btn--primary");
+  }
+
+  get calendarStartDay() {
+    return cy.get(".el-dropdown").first();
+  }
+
+  get calendarStartDayDrop() {
+    return cy.get(".el-dropdown-menu__item");
+  }
+
+  get monday() {
+    return cy.get(".vs-c-task-modal-type-dropdown__item-name").eq(1);
+  }
+
+  get boardText() {
+    return cy.get("[name='name']");
+  }
+
+  get boardDelBtn() {
+    return cy.get(".vs-c-site-logo").last();
+  }
+
+  addBoard(boardTypeInput, boardName) {
+    cy.get("[name='close-new-board-modal-btn']").click();
+    cy.wait(3000);
+    this.addBoardBtn.click();
+    cy.get("[name='name']").type(boardName);
+    this.boardYesBtn.click();
+    cy.get(".vs-c-radio-check").eq(boardTypeInput).click();
+    this.boardYesBtn.click();
+    this.boardYesBtn.click();
+    this.boardYesBtn.click();
+    this.boardYesBtn.click();
+  }
+
+  deleteBoard() {
+    this.boardDelBtn.click();
+    cy.wait(1000);
+    this.deleteButton.click();
+    this.yesBtn.click();
+    cy.get("[name='close-new-board-modal-btn']").click();
+  }
+}
+
+export const edit = new Edit();

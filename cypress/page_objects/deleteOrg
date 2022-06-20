@@ -1,0 +1,18 @@
+class DeleteOrg {
+  get password() {
+    return cy.get("[type='password']");
+  }
+
+  get yesBtn() {
+    return cy.get("[name='save-btn']");
+  }
+
+  delete() {
+    cy.get(".vs-c-btn--warning").click();
+    cy.wait(2000);
+    this.password.type("9214AZrQc");
+    this.yesBtn.click();
+  }
+}
+
+export const deleteOrg = new DeleteOrg();

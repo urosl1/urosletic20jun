@@ -1,0 +1,30 @@
+class CreateOrganization {
+  get newOrganiaztionBtn() {
+    return cy.get(".vs-c-my-organization--add-new");
+  }
+
+  get nameInput() {
+    return cy.get("[type='text']");
+  }
+
+  get nextBtn() {
+    return cy.get("[type='button']").last();
+  }
+
+  get uploadImageBtn() {
+    return cy.get(".el-upload-dragger");
+  }
+
+  get imageCircle() {
+    return cy.get(".vs-c-btn vs-c-btn--rounded");
+  }
+
+  create(name) {
+    this.newOrganiaztionBtn.click();
+    this.nameInput.type(name);
+    this.nextBtn.click();
+    this.nextBtn.click();
+  }
+}
+
+export const createOrganization = new CreateOrganization();
